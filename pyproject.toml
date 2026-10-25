@@ -1,0 +1,54 @@
+```toml
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "datrixai"
+version = "0.1.0"
+description = "A modular open-source Python framework for AI agents, RAG, and harness/context management."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [{ name = "DatrixAI Contributors" }]
+
+dependencies = [
+  "pydantic>=2.7,<3",
+  "httpx>=0.27,<1",
+  "fastapi>=0.111,<1",
+  "uvicorn[standard]>=0.30,<1",
+]
+
+[project.optional-dependencies]
+openai = [
+  "openai>=1.30,<3",
+]
+
+rag = [
+  "numpy>=1.26,<3",
+  "sentence-transformers>=3,<6",
+  "faiss-cpu>=1.8; platform_system != 'Windows'",
+]
+
+dev = [
+  "pytest>=8,<9",
+  "pytest-asyncio>=0.23,<2",
+  "ruff>=0.5,<1",
+  "mypy>=1.10,<2",
+]
+
+[project.scripts]
+datrixai = "datrixai.cli:main"
+datrixai-harness = "datrixai.harness.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/datrixai"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+```
