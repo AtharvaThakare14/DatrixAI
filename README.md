@@ -62,7 +62,6 @@ DatrixAI sits between the developer's AI client and the model, tools, and inform
   <img src="assets/architecture.png" alt="DatrixAI architecture diagram showing the developer or AI client, context and harness layer, model, middleware and tools, orchestration, and outputs and memory" width="100%" />
 </p>
 
-> **Asset note:** This README expects the architecture image to be saved as `assets/architecture.png`. If your actual PNG has a different filename, update the path above to match it.
 
 ### How the architecture works
 
